@@ -33,6 +33,7 @@ export function getRegions(galaxy: string): Set<string> {
 		'F8556C2F',
 		'F8555C2F',
 	];
+
 	const CalHubGlyphs = [
 		'F9554C2F',
 		'F9554C30',
@@ -69,10 +70,12 @@ export function getRegions(galaxy: string): Set<string> {
 		'FB556C30',
 		'F7556C30',
 	];
+	
 	if (galaxy == 'Eissentam') {
 		regionGlyphs.splice(-2, 2, ...EisHubGlyphs);
 	return new Set(regionGlyphs);
 	} else (galaxy == 'Calypso')
 		regionGlyphs.splice(-2, 2, ...CalHubGlyphs);
 	return new Set(regionGlyphs);
+
 };
