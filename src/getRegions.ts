@@ -73,9 +73,10 @@ export function getRegions(galaxy: string): Set<string> {
 	
 	if (galaxy == 'Eissentam') {
 		regionGlyphs.splice(-2, 2, ...EisHubGlyphs);
-	return new Set(regionGlyphs);
-	} else (galaxy == 'Calypso')
+	} 
+	else if (galaxy == 'Calypso') {
 		regionGlyphs.splice(-2, 2, ...CalHubGlyphs);
+	}
 	return new Set(regionGlyphs);
 
 };
