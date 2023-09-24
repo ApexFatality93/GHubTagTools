@@ -13,8 +13,8 @@ const systemIndexLength = 3;
 hideMain();
 
 // changes the "other pages" link if on subdomain
-const COREHosts = ['coretag.nmscore.com', 'core-tag.nmscore.com', 'core-tag-generator.nmscore.com'];
-if (COREHosts.includes(window.location.host)) (document.querySelector('a[href=".."]') as HTMLAnchorElement).href = 'https://NerdMachine0.github.io/';	// 'https://nmscore.com';
+const GHubHosts = ['hubtag.nmsgalactichub.com', 'hub-tag.nmsgalactichub.com', 'hub-tag-generator.nmsgalactichub.com'];
+if (GHubHosts.includes(window.location.host)) (document.querySelector('a[href=".."]') as HTMLAnchorElement).href = 'https://apexfatality93.github.io/';	// 'https://nmsgalactichub.com';
 
 // hides the main element if no galaxy is given
 export function hideMain() {
@@ -44,8 +44,8 @@ export function generateTag(): OutputObj {
 
 	const regionNum = getRegionNum(glyphs);
 	const SIV = getSIV(glyphs);
-	const tag = `[CORE${regionNum}-${SIV}]`;
-	return { status: 'Your CORE Tag:', output: tag };
+	const tag = `[HUB${regionNum}-${SIV}]`;
+	return { status: 'Your Hub Tag:', output: tag };
 }
 
 export function decodeTag(): OutputObj {
@@ -54,17 +54,17 @@ export function decodeTag(): OutputObj {
 	const input = tagInputElement.value.replaceAll(/[\[\]]/g, '').replaceAll('68+1', '69').trim();	// NoSonar the escape character is necessary
 	if (!input) return { status: '', output: '' };
 	const regions = Array.from(getRegions(galaxy));
-	const [CORE, sysIndex] = input.split('-');
-	const regionNum = CORE.replace('CORE', '');
+	const [hub, sysIndex] = input.split('-');
+	const regionNum = hub.replace('HUB', '');
 	const regionIndex = parseInt(regionNum) - 1;
 	const regionCode = regions[regionIndex];
 
-	if (!sysIndex || !regionCode || !CORE.startsWith('CORE')) {
+	if (!sysIndex || !regionCode || !hub.startsWith('HUB')) {
 		let errorMessage = '';
 		if (!sysIndex) {
-			errorMessage = 'Invalid CORE tag format (missing "-")';
-		} else if (!regionCode || !CORE.startsWith('CORE')) {
-			errorMessage = 'Invalid CORE tag format (no "CORE" or wrong region ID)';
+			errorMessage = 'Invalid Hub tag format (missing "-")';
+		} else if (!regionCode || !hub.startsWith('HUB')) {
+			errorMessage = 'Invalid Hub tag format (no "HUB" or wrong region ID)';
 		}
 		return { status: 'Error:', output: errorMessage };
 	}
