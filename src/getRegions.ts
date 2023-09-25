@@ -35,6 +35,8 @@ export function getRegions(galaxy: string): Set<string> {
 	];
 
 	const CalHubGlyphs = [
+		'FA556C30',
+    		'F8556C30',
 		'F9554C2F',
 		'F9554C30',
 		'F9554C31',
