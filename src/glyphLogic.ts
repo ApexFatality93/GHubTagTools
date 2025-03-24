@@ -4,7 +4,8 @@ import { getRegions } from './getRegions';
 import { galaxy } from './main';
 
 const validPortalKeys = '0123456789ABCDEF';
-const maxIndex = 767;
+// removed with updated purple system code
+// const maxIndex = 767;
 const regionGlyphStart = 4;
 const expectedGlyphLength = 12;
 
@@ -88,7 +89,9 @@ export function checkGlyphs(inputElement: HTMLInputElement, enableLengthCheck: b
 
 	const correctLength = glyphs.length == expectedGlyphLength;
 	const regionInHub = regions.has(regionGlyphs);
-	const reachable = (decSIV && decSIV < (maxIndex + 1)) as boolean;
+	// const reachable = (decSIV && decSIV < (maxIndex + 1)) as boolean;
+	// Updated code for purple systems
+	const reachable = (decSIV && ((decSIV >= 1 && decSIV <= 767) || (decSIV >= 1000 && decSIV <= 1065))) as boolean;
 	const isValid = (() => {
 		if (enableLengthCheck || glyphs.length == expectedGlyphLength) {
 			return correctLength && regionInHub && reachable;
@@ -134,7 +137,9 @@ export function getSIV(glyphs: string): string {
 	// this removes leading zeros
 	const decSIV = Number('0x' + systemIndex);
 	// return false if system is not reachable via portal (max system index is 2FF, which is 767 in dec)
-	if (!decSIV || decSIV > maxIndex) return '';
+	// if (!decSIV || decSIV > maxIndex) return '';
+	// Updated purple system code to allow SIVS between 1-767 and 1000-1065
+	if (!decSIV || (decSIV > 767 && (decSIV < 1000 || decSIV > 1065))) return '';
 	const hexSIV = decSIV.toString(16).toUpperCase();	// NoSonar this is dec to hex
 	return hexSIV.replace('69', '68+1');	// replace 69 with 68+1, because the profanity filter flags it
 }
