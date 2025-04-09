@@ -70,8 +70,6 @@ export function getRegions(galaxy: string): Set<string> {
 		'F9556C2F',
 		'F9555C2F',
 		'FA556C30',
-		'F8556C30',
-		'FA556C30',
     	'F8556C30',
 		'F9554C2F',
 		'F9554C30',
