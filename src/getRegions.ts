@@ -1,16 +1,32 @@
 export function getRegions(galaxy: string): Set<string> {
 	const regionGlyphs = [
-		'F9556C30',
-		'F9555C30',
-		'F9555C31',
-		'F9556C31',
-		'F9557C31',
-		'F9557C30',
-		'F9557C2F',
-		'F9556C2F',
-		'F9555C2F',
-		'FA556C30',
-		'F8556C30',
+		"CF589C1E",
+        "CF588C1E",
+        "CF588C1F",
+        "CF589C1F",
+		"CF58AC1F",
+        "CF58AC1E",
+        "CF58AC1D",
+        "CF589C1D",
+        "CF588C1D",
+        "D0589C1E",
+        "D0588C1E",
+        "D0588C1F",
+        "D0589C1F",
+        "D058AC1F",
+        "D058AC1E",
+        "D058AC1D",
+        "D0589C1D",
+        "D0588C1D",
+        "CE589C1E",
+        "CE588C1E",
+        "CE588C1F",
+        "CE589C1F",
+        "CE58AC1F",
+        "CE58AC1E",
+        "CE58AC1D",
+        "CE589C1D",
+        "CE588C1D",
 	];
 
 	const EisHubGlyphs = [
@@ -44,8 +60,19 @@ export function getRegions(galaxy: string): Set<string> {
 	];
 
 	const CalHubGlyphs = [
+		'F9556C30',
+		'F9555C30',
+		'F9555C31',
+		'F9556C31',
+		'F9557C31',
+		'F9557C30',
+		'F9557C2F',
+		'F9556C2F',
+		'F9555C2F',
 		'FA556C30',
-    		'F8556C30',
+		'F8556C30',
+		'FA556C30',
+    	'F8556C30',
 		'F9554C2F',
 		'F9554C30',
 		'F9554C31',
@@ -86,7 +113,8 @@ export function getRegions(galaxy: string): Set<string> {
 	    return new Set(EisHubGlyphs);
 	}
 	else if (galaxy == 'Calypso') {
-		regionGlyphs.splice(-2, 2, ...CalHubGlyphs);
+		// regionGlyphs.splice(-2, 2, ...CalHubGlyphs);
+		return new Set(CalHubGlyphs);
 	}
 	return new Set(regionGlyphs);
 
